@@ -175,7 +175,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center min-h-screen relative bg-background">
         <Laptop className="w-16 h-16 text-gray-400" />
 
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold p-5">
           Please use a desktop to view this page
         </div>
       </div>
