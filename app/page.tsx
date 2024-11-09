@@ -11,7 +11,6 @@ import {
 } from "./helpers";
 import { Card } from "@nextui-org/react";
 import { Search } from "@/components/ui/search";
-import Image, { ImageProps } from "next/image";
 import { MapPin, Building2, Heart, ThumbsDown, TrendingUp } from "lucide-react";
 import { ChartConfig } from "@/components/ui/chart";
 import { PieChart } from "@/components/ui/pie-chart";
@@ -50,19 +49,6 @@ interface ImpressionData {
   label: string;
   value: number;
   fill: string;
-}
-
-export function OptimizedImage(props: ImageProps) {
-  return (
-    <Image
-      {...props}
-      alt="Place Image"
-      width={30}
-      height={30}
-      quality={20}
-      loading="eager"
-    />
-  );
 }
 
 interface LikesData {
@@ -309,7 +295,7 @@ export default function Home() {
             <Card className="p-4 h-[300px] md:h-[500px]">
               <RadialChart
                 title="User Attributes"
-                description="Showing user attributes of the users who engage with this place"
+                description="Showing user attributes of the users whoengage"
                 data={radialChartData}
                 chartConfig={chartConfig}
               />
