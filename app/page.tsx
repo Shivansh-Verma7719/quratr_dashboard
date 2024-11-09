@@ -16,6 +16,7 @@ import { ChartConfig } from "@/components/ui/chart";
 import { PieChart } from "@/components/ui/pie-chart";
 import { HistoryLineChart } from "@/components/ui/historylinechart";
 import { RadialChart } from "@/components/ui/radial-chart";
+import { Laptop } from "lucide-react";
 
 export interface Place {
   id: string;
@@ -88,6 +89,14 @@ export default function Home() {
       dislikesData: number;
     }[]
   >([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 748);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -160,6 +169,18 @@ export default function Home() {
     );
     setRadialChartData(onboardingStats);
   };
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen relative bg-background">
+        <Laptop className="w-16 h-16 text-gray-400" />
+
+        <div className="text-2xl font-bold">
+          Please use a desktop to view this page
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center min-h-screen relative bg-background">
