@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { getPages } from "@/components/pages";
@@ -15,7 +15,7 @@ const CustomNavbar: React.FC = () => {
   return (
     <motion.header
       style={{ opacity: headerOpacity }}
-      className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-background text-text bg-opacity-90 backdrop-blur-sm shadow-sm border-b border-gray-700"
+      className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-background text-text bg-opacity-90 backdrop-blur-xs shadow-xs border-b border-gray-700"
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex justify-between items-center">
@@ -60,7 +60,7 @@ const CustomNavbar: React.FC = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="text-gray-600 hover:text-gray-900 focus:outline-hidden"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>

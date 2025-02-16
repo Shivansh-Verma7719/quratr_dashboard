@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   getAllPlaces,
   getLikesOfPlace,
@@ -9,7 +9,7 @@ import {
   getAllUsersOfPlaceDislikes,
   calculateOnboardingStats,
 } from "./helpers";
-import { Card } from "@nextui-org/react";
+import { Card } from "@heroui/react";
 import { Search } from "@/components/ui/search";
 import { MapPin, Building2, Heart, ThumbsDown, TrendingUp } from "lucide-react";
 import { ChartConfig } from "@/components/ui/chart";
@@ -255,7 +255,7 @@ export default function Home() {
             <Card className="p-4 h-[200px] relative overflow-hidden">
               <div className="flex flex-col h-full">
                 <h3 className="text-xl font-semibold mb-4">Likes</h3>
-                <div className="flex items-center justify-center flex-grow">
+                <div className="flex items-center justify-center grow">
                   <div className="text-center">
                     <Heart className="w-12 h-12 text-pink-500 mb-2" />
                     <p className="text-3xl font-bold text-pink-500">
@@ -273,7 +273,7 @@ export default function Home() {
             <Card className="p-4 h-[200px] relative overflow-hidden">
               <div className="flex flex-col h-full">
                 <h3 className="text-xl font-semibold mb-4">Dislikes</h3>
-                <div className="flex items-center justify-center flex-grow">
+                <div className="flex items-center justify-center grow">
                   <div className="text-center">
                     <ThumbsDown className="w-12 h-12 text-red-500 mb-2" />
                     <p className="text-3xl font-bold text-red-500">

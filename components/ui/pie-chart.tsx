@@ -3,7 +3,7 @@
 import * as React from "react"
 import { TrendingUp } from "lucide-react"
 import { Label, Pie, PieChart as RechartsChart } from "recharts"
-import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react"
+import { Card, CardBody, CardHeader, CardFooter } from "@heroui/react"
 
 import {
   ChartConfig,

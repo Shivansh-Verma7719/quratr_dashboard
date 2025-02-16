@@ -3,7 +3,7 @@
 import * as React from "react"
 import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart as RechartsChart, XAxis } from "recharts"
-import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react"
+import { Card, CardBody, CardHeader, CardFooter } from "@heroui/react"
 
 import {
   ChartConfig,
@@ -47,7 +47,7 @@ export function LineChartMulti({
       <CardBody className="flex-1 pb-0">
         <ChartContainer
           config={config}
-          className="w-full aspect-[2/1]"
+          className="w-full aspect-2/1"
         >
           <RechartsChart
             data={data}

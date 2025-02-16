@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SearchIcon, X } from "lucide-react";
 import Image, { ImageProps } from "next/image";
 import { cn } from "@/lib/utils";
-import { Avatar } from "@nextui-org/react";
+import { Avatar } from "@heroui/react";
 import { Place } from "@/app/page";
 
 interface SearchProps {
@@ -76,7 +76,7 @@ export function Search({
     if (selectedIndex >= 0 && dropdownListRef.current) {
       const dropdown = dropdownListRef.current;
       const selectedItem = dropdown.children[selectedIndex] as HTMLElement;
-      
+
       if (selectedItem) {
         const dropdownRect = dropdown.getBoundingClientRect();
         const selectedItemRect = selectedItem.getBoundingClientRect();
@@ -106,13 +106,13 @@ export function Search({
     switch (e.key) {
       case "ArrowDown":
         e.preventDefault();
-        setSelectedIndex(prev => 
+        setSelectedIndex((prev) =>
           prev < filteredItems.length - 1 ? prev + 1 : prev
         );
         break;
       case "ArrowUp":
         e.preventDefault();
-        setSelectedIndex(prev => (prev > 0 ? prev - 1 : prev));
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
         break;
       case "Enter":
         e.preventDefault();
@@ -156,7 +156,7 @@ export function Search({
           onKeyDown={handleKeyDown}
           onFocus={() => setIsOpen(true)}
           placeholder={placeholder}
-          className="flex-1 bg-transparent border-none outline-none ml-2 text-foreground"
+          className="flex-1 bg-transparent border-none outline-hidden ml-2 text-foreground"
         />
         {searchQuery && (
           <button
@@ -178,7 +178,7 @@ export function Search({
             transition={{ duration: 0.2 }}
             className="absolute w-full mt-2 bg-background border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50"
           >
-            <div 
+            <div
               ref={dropdownListRef}
               className="max-h-[320px] overflow-y-auto scroll-smooth"
             >
@@ -192,13 +192,13 @@ export function Search({
                     selectedIndex === index && "bg-gray-100 dark:bg-gray-800"
                   )}
                 >
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <Avatar
                       alt={item.name}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       size="sm"
                       src={item.image}
-                      ImgComponent={OptimizedImage}
+                      imgProps={{ loading: "eager" , width: 30, height: 30}}
                     />
                   </div>
                   <div className="flex flex-col">
