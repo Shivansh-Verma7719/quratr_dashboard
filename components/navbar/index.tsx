@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { getPages } from "@/components/pages";
 import Logo from "@/components/logos/logo";
+import Link from "next/link";
 
 const CustomNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const CustomNavbar: React.FC = () => {
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex justify-between items-center">
-          <a href="/">
+          <Link href="/">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,7 +35,7 @@ const CustomNavbar: React.FC = () => {
                 uratr
               </h1>
             </motion.div>
-          </a>
+          </Link>
           <div className="hidden md:flex space-x-1">
             {pages.map((item) => (
               <motion.a
@@ -77,14 +78,14 @@ const CustomNavbar: React.FC = () => {
         >
           <div className="container mx-auto px-4 flex flex-col space-y-2">
             {pages.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </motion.div>
